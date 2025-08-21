@@ -110,10 +110,10 @@ class YiiInstrumentation
                         $prop->inject($response, ResponsePropagationSetter::instance(), $scope->context());
                     }
 
-                    // Propagate response baggage to response, if ResponseBaggagePropagator is present
-                    if (class_exists('OpenTelemetry\Contrib\Propagation\ResponseBaggage\ResponseBaggagePropagator')) {
+                    // Propagate solarwinds specific response to response, if SolarwindsResponsePropagator is present
+                    if (class_exists('OpenTelemetry\Contrib\Propagation\Solarwinds\SolarwindsResponsePropagator')) {
                         /** @phan-suppress-next-line PhanUndeclaredClassMethod */
-                        $prop = new \OpenTelemetry\Contrib\Propagation\ResponseBaggage\ResponseBaggagePropagator();
+                        $prop = new \OpenTelemetry\Contrib\Propagation\Solarwinds\SolarwindsResponsePropagator();
                         /** @phan-suppress-next-line PhanUndeclaredClassMethod */
                         $prop->inject($response, ResponsePropagationSetter::instance(), $scope->context());
                     }
